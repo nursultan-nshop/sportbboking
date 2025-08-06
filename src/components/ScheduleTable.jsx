@@ -40,7 +40,7 @@ export default function ScheduleTable({ venueName }) {
     }
 
     try {
-      const res = await fetch("http://localhost:3002/api/bookings/by-name", {
+      const res = await fetch("https://sportbooking4.onrender.com/api/bookings/by-name", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

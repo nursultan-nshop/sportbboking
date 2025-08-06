@@ -40,7 +40,7 @@ export default function Login({ setUser }) {
     try {
       console.log("Payload: ",payload);
       
-      const res = await axios.post('http://localhost:3002/api/login', payload);
+      const res = await axios.post('https://sportbooking4.onrender.com/api/login', payload);
 
       console.log(res);
 

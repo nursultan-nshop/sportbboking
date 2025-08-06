@@ -7,7 +7,7 @@ const BookingForm = ({ venueName }) => {
 
   const handleBook = async () => {
     try {
-      const res = await fetch('https://sportbookingbc.onrender.com/api/bookings-by-name', {
+      const res = await fetch('https://sportbooking4.onrender.com/api/bookings-by-name', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

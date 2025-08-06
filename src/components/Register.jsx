@@ -31,7 +31,7 @@ export default function Register() {
     }
 
     try {
-      const res = await fetch('http://localhost:3002/api/register', {
+      const res = await fetch('https://sportbooking4.onrender.com/api/register', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(formData),
