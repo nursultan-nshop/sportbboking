@@ -18,7 +18,7 @@ const VenueCard = ({ venue }) => {
         <p className="venue-type">Football venue</p>
 
         <div className="venue-middle">
-          <p className="venue-location">📍 Zharokov 24/1</p>
+          <p className="venue-location"> Zharokov 24/1</p>
           <p className="venue-price">
             <span className="price">16000₸</span>
             <span className="per-hour">/hour</span>
@@ -27,7 +27,7 @@ const VenueCard = ({ venue }) => {
 
         <div className="venue-rating">
           <span className="rating-score">9.5</span>
-          <span className="star">⭐</span>
+          <span className="star"></span>
         </div>
 
         <button className="book-btn" onClick={handleBookClick}>
