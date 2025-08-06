@@ -124,3 +124,22 @@
   border-radius: 8px;
   cursor: pointer;
 }
+
+.booking-item, .review-item {
+  background: #fff;
+  padding: 15px;
+  margin-bottom: 10px;
+  border-radius: 10px;
+  box-shadow: 0 0 6px rgba(0,0,0,0.1);
+}
+
+.bookings-section h3,
+.reviews-section h3 {
+  margin-bottom: 20px;
+}
+
+.bookings-section,
+.reviews-section {
+  max-width: 600px;
+  margin: auto;
+}

@@ -15,19 +15,24 @@ const VenueCard = ({ venue }) => {
 
       <div className="venue-info">
         <h3 className="venue-name">{venue.name}</h3>
-        <p className="venue-type">{venue.sport} venue</p>
-        <p className="venue-location">{venue.location}</p>
+        <p className="venue-type">Football venue</p>
 
-        <div className="venue-bottom">
-          <div className="left-info">
-            <div className="venue-rating">{venue.rating}</div>
-            <div className="venue-price">
-              <span className="price">{venue.price}₸</span>
-              <span className="per-hour">/hour</span>
-            </div>
-          </div>
-          <button className="book-btn" onClick={handleBookClick}>BOOK</button>
+        <div className="venue-middle">
+          <p className="venue-location">📍 Zharokov 24/1</p>
+          <p className="venue-price">
+            <span className="price">16000₸</span>
+            <span className="per-hour">/hour</span>
+          </p>
         </div>
+
+        <div className="venue-rating">
+          <span className="rating-score">9.5</span>
+          <span className="star">⭐</span>
+        </div>
+
+        <button className="book-btn" onClick={handleBookClick}>
+          BOOK
+        </button>
       </div>
     </div>
   );
