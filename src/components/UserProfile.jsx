@@ -3,60 +3,64 @@ import '../css/UserProfile.css';
 import { UserContext } from '../App';
 
 export default function UserProfile() {
-
   const bookings = [
-    {
-      id: 1,
-      venue: 'Olzha Sports',
-      date: '2025-08-08',
-      time: '18:00 - 19:00',
-    },
-    {
-      id: 2,
-      venue: 'Pride Pfc',
-      date: '2025-08-10',
-      time: '20:00 - 21:00',
-    },
+    { id: 1, venue: 'Olzha Sports', date: '2025-08-08', time: '18:00 - 19:00' },
+    { id: 2, venue: 'Pride Pfc', date: '2025-08-10', time: '20:00 - 21:00' },
   ];
 
   const reviews = [
-    {
-      id: 1,
-      venue: 'Olzha Sports',
-      comment: 'Тамаша стадион!',
-    },
-    {
-      id: 2,
-      venue: 'Arena Pro',
-      comment: 'Қызмет көрсету жоғары деңгейде.',
-    },
+    { id: 1, venue: 'Olzha Sports', comment: 'Тамаша стадион!' },
+    { id: 2, venue: 'Arena Pro', comment: 'Қызмет көрсету жоғары деңгейде.' },
   ];
 
-  let {setisAuthenticated, user} = useContext(UserContext)
+  const { user, setisAuthenticated } = useContext(UserContext);
   const [isEditing, setIsEditing] = useState(false);
   const [activeTab, setActiveTab] = useState('profile');
+  const [errors, setErrors] = useState({});
+
+  const [editableUser, setEditableUser] = useState({
+    ...user,
+    password: '',
+    confirmPassword: '',
+  });
 
   const handleLogout = () => {
     const confirmed = window.confirm('Шығуға сенімдісіз бе?');
     if (confirmed) {
       localStorage.removeItem('token');
-      localStorage.removeItem('user')
-      setisAuthenticated(false)
+      localStorage.removeItem('user');
+      setisAuthenticated(false);
       window.location.href = '/login';
     }
   };
 
   const handleChange = (e) => {
-    setUser({ ...user, [e.target.name]: e.target.value });
+    const { name, value } = e.target;
+    setEditableUser((prev) => ({ ...prev, [name]: value }));
+    setErrors((prev) => ({ ...prev, [name]: '' }));
   };
 
   const handleSave = () => {
-    if (user.password !== user.confirmPassword) {
-      alert('Құпия сөздер сәйкес емес!');
-      return;
+    const newErrors = {};
+
+    if (!editableUser.email || !editableUser.email.includes('@')) {
+      newErrors.email = 'Email дұрыс форматта емес';
     }
-    alert('Өзгерістер сақталды!');
-    setIsEditing(false);
+
+    if (editableUser.password.length < 6) {
+      newErrors.password = 'Құпия сөз кемінде 6 таңбадан тұруы керек';
+    }
+
+    if (editableUser.password !== editableUser.confirmPassword) {
+      newErrors.confirmPassword = 'Құпия сөздер сәйкес емес';
+    }
+
+    setErrors(newErrors);
+
+    if (Object.keys(newErrors).length === 0) {
+      alert('Өзгерістер сақталды!');
+      setIsEditing(false);
+    }
   };
 
   const handleDelete = () => {
@@ -73,55 +77,38 @@ export default function UserProfile() {
       <div className="sidebar">
         <h2>Sport Booking</h2>
         <ul className="nav-links">
-          <li
-            className={activeTab === 'profile' ? 'active' : ''}
-            onClick={() => setActiveTab('profile')}
-          >
-            Профиль
-          </li>
-          <li
-            className={activeTab === 'bookings' ? 'active' : ''}
-            onClick={() => setActiveTab('bookings')}
-          >
-            Брондарым
-          </li>
-          <li
-            className={activeTab === 'reviews' ? 'active' : ''}
-            onClick={() => setActiveTab('reviews')}
-          >
-            Пікірлер
-          </li>
+          <li className={activeTab === 'profile' ? 'active' : ''} onClick={() => setActiveTab('profile')}>Профиль</li>
+          <li className={activeTab === 'bookings' ? 'active' : ''} onClick={() => setActiveTab('bookings')}>Брондарым</li>
+          <li className={activeTab === 'reviews' ? 'active' : ''} onClick={() => setActiveTab('reviews')}>Пікірлер</li>
         </ul>
-        <button className="logout-button" onClick={handleLogout}>
-          Шығу
-        </button>
+        <button className="logout-button" onClick={handleLogout}>Шығу</button>
       </div>
 
       <div className="profile-content">
         {activeTab === 'profile' && (
           <div className="profile-card">
-            <img
-              className="profile-avatar"
-              src="https://cdn-icons-png.flaticon.com/512/147/147144.png"
-              alt="Avatar"
-            />
-            <h3>{user.username}</h3>
-            <p className="username">{user.email}</p>
+            <img className="profile-avatar" src="https://cdn-icons-png.flaticon.com/512/147/147144.png" alt="Avatar" />
+            <h3>{editableUser.username}</h3>
+            <p className="username">{editableUser.email}</p>
 
             {isEditing ? (
               <>
                 <div className="form-row">
-                  <input type="text" name="firstName" value={user.firstName} onChange={handleChange} placeholder="First name" />
-                  <input type="text" name="lastName" value={user.lastName} onChange={handleChange} placeholder="Last name" />
+                  <input type="text" name="firstName" value={editableUser.firstName || ''} onChange={handleChange} placeholder="First name" />
+                  <input type="text" name="lastName" value={editableUser.lastName || ''} onChange={handleChange} placeholder="Last name" />
                 </div>
                 <div className="form-row">
-                  <input type="text" name="username" value={user.username} onChange={handleChange} placeholder="Username" />
-                  <input type="email" name="email" value={user.email} onChange={handleChange} placeholder="Email" />
+                  <input type="text" name="username" value={editableUser.username || ''} onChange={handleChange} placeholder="Username" />
+                  <input type="email" name="email" value={editableUser.email || ''} onChange={handleChange} placeholder="Email" />
                 </div>
+                {errors.email && <p className="error-text">{errors.email}</p>}
                 <div className="form-row">
-                  <input type="password" name="password" value={user.password} onChange={handleChange} placeholder="Password" />
-                  <input type="password" name="confirmPassword" value={user.confirmPassword} onChange={handleChange} placeholder="Confirm password" />
+                  <input type="password" name="password" value={editableUser.password} onChange={handleChange} placeholder="Password" />
+                  <input type="password" name="confirmPassword" value={editableUser.confirmPassword} onChange={handleChange} placeholder="Confirm password" />
                 </div>
+                {errors.password && <p className="error-text">{errors.password}</p>}
+                {errors.confirmPassword && <p className="error-text">{errors.confirmPassword}</p>}
+
                 <div className="form-row">
                   <button className="delete-button" onClick={handleDelete}>Delete account</button>
                   <button className="edit-button" onClick={handleSave}>Save</button>
@@ -130,12 +117,12 @@ export default function UserProfile() {
             ) : (
               <>
                 <div className="form-row">
-                  <input type="text" value={user.firstName} disabled />
-                  <input type="text" value={user.lastName} disabled />
+                  <input type="text" value={editableUser.firstName || ''} disabled />
+                  <input type="text" value={editableUser.lastName || ''} disabled />
                 </div>
                 <div className="form-row">
-                  <input type="text" value={user.username} disabled />
-                  <input type="email" value={user.email} disabled />
+                  <input type="text" value={editableUser.username || ''} disabled />
+                  <input type="email" value={editableUser.email || ''} disabled />
                 </div>
                 <button className="edit-button" onClick={() => setIsEditing(true)}>Өңдеу</button>
               </>
