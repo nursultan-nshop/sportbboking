@@ -52,11 +52,6 @@ export default function Login({ setUser }) {
       }
     } catch (err) {
       setMessage({ type: 'error', text: 'Серверге қосыла алмадым.' });
-      navigate('/');
-setTimeout(() => {
-  window.location.reload();
-}, 100);
-
     }
   };
 
