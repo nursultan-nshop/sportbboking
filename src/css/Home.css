@@ -1,0 +1,350 @@
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #fff;
+  color: #333;
+  line-height: 1.6;
+}
+
+.header {
+  background-color:   #007bff;
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: white;
+  flex-wrap: wrap;
+}
+
+.header-left img {
+  height: 40px;
+}
+
+.header-right {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.login-btn,
+.signup-btn {
+  padding: 0.5rem 1.1rem;
+  border-radius: 25px;
+  font-weight: bold;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-size: 0.95rem;
+}
+
+.login-btn {
+  background-color: white;
+  color: #007bff;
+}
+
+.signup-btn {
+  background-color: #0056d2;
+  color: white;
+}
+
+.login-btn:hover,
+.signup-btn:hover {
+  opacity: 0.85;
+}
+
+.hero-container {
+  background-color: #007bff;
+  color: white;
+  padding: 4rem 1rem 3rem;
+  text-align: center;
+}
+
+.hero-content h1 {
+  font-size: 2.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.hero-content p {
+  font-size: 1.2rem;
+  opacity: 0.95;
+  margin-bottom: 1.5rem;
+}
+
+.search-bar {
+  margin: auto;
+  width: 800px;
+  display: flex;
+  gap: 5px;
+  justify-content: center;
+  align-items: center;
+  padding:5px;
+  background-color:rgb(100, 92, 77)e;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.search-bar select{
+  background-color: white;
+  color: black;
+}
+.search-bar select,
+.search-bar button {
+  padding: 0.6rem 1rem;
+  font-size: 1rem;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  min-width: 150px;
+}
+
+.search-btn {
+  background-color: #007bff;
+  width: 0px;
+  color: white;
+  font-weight: bold;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.reset-btn {
+  background-color: #ccc;
+  width: 100px;
+  color: #333;
+  font-weight: bold;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.search-btn:hover {
+  background-color: #0056d2;
+}
+
+.reset-btn:hover {
+  background-color: #aaa;
+}
+
+.no-results {
+  padding: 1.5rem;
+  font-size: 1rem;
+  color: #777;
+  text-align: center;
+}
+
+
+.venues-section {
+  padding: 3rem 2rem;
+  background-color: #f8f9fa;
+}
+
+.venues-section h2 {
+  font-size: 1.8rem;
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+
+.venue-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+}
+
+
+.venue-card {
+  background-color: #fff;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+  transition: transform 0.2s ease-in-out;
+}
+
+.venue-card:hover {
+  transform: translateY(-5px);
+}
+
+.venue-image img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+}
+
+.venue-info {
+  padding: 1rem;
+}
+
+.venue-info h3 {
+  font-size: 1.2rem;
+  margin-bottom: 0.4rem;
+  color: #222;
+}
+
+.venue-info p {
+  font-size: 0.95rem;
+  color: #555;
+  margin-bottom: 0.3rem;
+}
+
+.venue-info .price {
+  color: #007bff;
+  font-weight: bold;
+}
+
+.venue-info .rating {
+  color: #f0a500;
+}
+
+
+.footer {
+  background-color: #007bff;
+  color: white;
+  text-align: center;
+  padding: 2rem 1rem;
+  margin-top: 2rem;
+}
+
+.footer a {
+  color: white;
+  margin: 0 12px;
+  text-decoration: none;
+  font-size: 0.95rem;
+}
+
+.footer a:hover {
+  text-decoration: underline;
+}
+
+.footer .social-icons {
+  margin-top: 0.8rem;
+}
+
+.footer .social-icons i {
+  margin: 0 8px;
+  font-size: 1.3rem;
+  color: white;
+}
+
+
+@media (max-width: 768px) {
+  .search-bar {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .header-right {
+    margin-top: 0.5rem;
+  }
+
+  .venue-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .hero-content h1 {
+    font-size: 2rem;
+  }
+
+  .hero-content p {
+    font-size: 1rem;
+  }
+}
+
+
+.hero-container {
+  background-color: #0094ff;
+  padding: 40px 20px;
+  text-align: center;
+  color: white;
+}
+
+.search-bar {
+  display: flex;
+  gap: 10px;
+  margin-top: 20px;
+  background: orange;
+  padding: 10px;
+  border-radius: 12px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.search-bar select,
+.search-bar button {
+  padding: 10px 16px;
+  border-radius: 8px;
+  border: none;
+  font-size: 16px;
+}
+
+.search-btn {
+  background-color: #007bff;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.reset-btn {
+  background-color: #ccc;
+  color: #333;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.venues-section {
+  padding: 30px 20px;
+}
+
+.venue-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 20px;
+}
+
+.venue-card {
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  overflow: hidden;
+  text-align: center;
+}
+
+.venue-image img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+}
+
+.venue-info {
+  padding: 10px 15px;
+}
+
+.price {
+  font-weight: bold;
+}
+
+.rating {
+  color: orange;
+}
+
+.footer {
+  padding: 20px;
+  background-color: q#27a7f7;
+  color: white;
+  text-align: center;
+}
+
+.footer a {
+  color: white;
+  margin: 0 10px;
+  text-decoration: none;
+}

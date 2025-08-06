@@ -1,0 +1,278 @@
+/* Venue Detail Page */
+
+.venue-detail-page {
+  padding: 40px 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #ffffff;
+}
+
+/* Top Section */
+.venue-header {
+  display: flex;
+  gap: 30px;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  margin-bottom: 40px;
+}
+
+.venue-header img {
+  width: 100%;
+  max-width: 600px;
+  border-radius: 12px;
+  object-fit: cover;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+}
+
+.venue-info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.venue-info h2 {
+  margin: 0;
+  font-size: 30px;
+  color: #1f2937;
+}
+
+.venue-price {
+  font-size: 20px;
+  color: #0284c7;
+  font-weight: bold;
+}
+
+.venue-description {
+  color: #374151;
+  line-height: 1.6;
+  font-size: 15px;
+}
+
+.venue-address {
+  color: #6b7280;
+  font-size: 14px;
+}
+
+.rating-stars {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: #f59e0b;
+  font-weight: bold;
+  font-size: 15px;
+}
+
+.gallery-preview {
+  display: flex;
+  gap: 10px;
+  margin-top: 10px;
+  flex-wrap: wrap;
+}
+
+.gallery-preview img {
+  height: 60px;
+  width: 80px;
+  object-fit: cover;
+  border-radius: 6px;
+  cursor: pointer;
+  border: 2px solid transparent;
+  transition: border-color 0.2s ease-in-out;
+}
+
+.gallery-preview img:hover {
+  border-color: #3b82f6;
+}
+
+/* Schedule Section */
+.schedule-container {
+  margin: 40px 0;
+  background: #f9fafb;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+  text-align: center;
+}
+
+.schedule-container h2 {
+  font-size: 24px;
+  margin-bottom: 20px;
+  color: #1f2937;
+}
+
+.schedule-table {
+  width: 100%;
+  overflow-x: auto;
+  margin-bottom: 20px;
+}
+
+.schedule-table table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 600px;
+}
+
+.schedule-table th,
+.schedule-table td {
+  border: 1px solid #e5e7eb;
+  padding: 10px;
+  text-align: center;
+  font-size: 14px;
+  cursor: pointer;
+  background-color: white;
+}
+
+.schedule-table td.selected,
+.schedule-table th.selected {
+  background: #2563eb;
+  color: white;
+  font-weight: bold;
+}
+
+.book-button {
+  background: #2563eb;
+  color: white;
+  padding: 12px 28px;
+  border-radius: 8px;
+  border: none;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background 0.2s ease-in-out;
+}
+
+.book-button:hover {
+  background: #1e40af;
+}
+
+/* Rating Section */
+.rating-section {
+  background: #f8fafc;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  margin-bottom: 40px;
+}
+
+.rating-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.rating-score {
+  font-size: 36px;
+  font-weight: bold;
+  color: #0f172a;
+}
+
+.stars-bar {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  font-size: 14px;
+  color: #f59e0b;
+}
+
+.write-review {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.write-review button {
+  background: #3b82f6;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 8px;
+  margin-bottom: 10px;
+  cursor: pointer;
+}
+
+.review-form {
+  margin-top: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.review-form textarea {
+  width: 100%;
+  max-width: 500px;
+  height: 100px;
+  padding: 10px;
+  font-size: 14px;
+  border: 1px solid #cbd5e1;
+  border-radius: 8px;
+  resize: none;
+}
+
+.review-form button {
+  background-color: #10b981;
+  color: white;
+  padding: 10px 16px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+}
+
+.review-item {
+  border-top: 1px solid #e2e8f0;
+  padding-top: 16px;
+  margin-top: 16px;
+}
+
+.review-item h4 {
+  margin: 0 0 4px;
+  font-size: 16px;
+}
+
+.review-item p {
+  color: #475569;
+  font-size: 14px;
+}
+
+/* Footer */
+.footer {
+  background: #0ea5e9;
+  color: white;
+  text-align: center;
+  padding: 30px 10px;
+  margin-top: 40px;
+}
+
+.footer a {
+  color: white;
+  margin: 0 10px;
+  font-size: 14px;
+  text-decoration: none;
+}
+
+.footer a:hover {
+  text-decoration: underline;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .venue-header {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .venue-header img {
+    max-width: 100%;
+  }
+
+  .rating-header {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .review-form textarea {
+    max-width: 100%;
+  }
+}
+  

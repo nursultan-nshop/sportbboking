@@ -1,0 +1,89 @@
+.login-page {
+  display: flex;
+  min-height: 100vh;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.left-side {
+  flex: 1;
+  background: #0064ef;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 40px;
+  background-image: url('/images/field-lines.svg'); /* суретті қалауыңа қарай өзгерт */
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.left-side h2 {
+  font-size: 2rem;
+  margin-bottom: 10px;
+}
+
+.left-side p {
+  max-width: 300px;
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+.right-side {
+  flex: 1;
+  background: #fceef0;
+  padding: 60px 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.login-form {
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.login-form h2 {
+  margin-bottom: 20px;
+  font-size: 28px;
+}
+
+input {
+  width: 100%;
+  padding: 12px;
+  margin: 10px 0;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  background-color: #fceef0;
+}
+
+button {
+  width: 100%;
+  padding: 14px;
+  background-color: #7f8c8d;
+  color: white;
+  border: none;
+  border-radius: 20px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+button:hover {
+  background-color: #34495e;
+}
+
+.message {
+  text-align: center;
+  margin-top: 15px;
+  font-size: 14px;
+}
+
+.message.success {
+  color: green;
+}
+
+.message.error {
+  color: red;
+}
