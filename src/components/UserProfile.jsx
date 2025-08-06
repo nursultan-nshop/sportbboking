@@ -1,15 +1,8 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import '../css/UserProfile.css';
+import { UserContext } from '../App';
 
 export default function UserProfile() {
-  const initialUser = {
-    firstName: 'Nursultan',
-    lastName: 'Abylaikhanuly',
-    username: 'nursultan_07',
-    email: 'nurs@gmail.com',
-    password: '',
-    confirmPassword: '',
-  };
 
   const bookings = [
     {
@@ -39,7 +32,7 @@ export default function UserProfile() {
     },
   ];
 
-  const [user, setUser] = useState(initialUser);
+  let {setisAuthenticated, user} = useContext(UserContext)
   const [isEditing, setIsEditing] = useState(false);
   const [activeTab, setActiveTab] = useState('profile');
 
@@ -47,6 +40,8 @@ export default function UserProfile() {
     const confirmed = window.confirm('Шығуға сенімдісіз бе?');
     if (confirmed) {
       localStorage.removeItem('token');
+      localStorage.removeItem('user')
+      setisAuthenticated(false)
       window.location.href = '/login';
     }
   };
@@ -110,8 +105,8 @@ export default function UserProfile() {
               src="https://cdn-icons-png.flaticon.com/512/147/147144.png"
               alt="Avatar"
             />
-            <h3>{user.firstName} {user.lastName}</h3>
-            <p className="username">@{user.username}</p>
+            <h3>{user.username}</h3>
+            <p className="username">{user.email}</p>
 
             {isEditing ? (
               <>

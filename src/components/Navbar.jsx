@@ -1,7 +1,12 @@
-import React from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
+import { UserContext } from '../App';
 
-export default function Navbar({ user }) {
+export default function Navbar() {
+  let {user} = useContext(UserContext)
+
+  console.log("user: ",user);
+  
   return (
     <nav style={{
       display: 'flex',
@@ -16,7 +21,7 @@ export default function Navbar({ user }) {
 
       {user ? (
         <Link to="/profile" style={{ color: 'white', textDecoration: 'none' }}>
-          {user.name}
+          {user.email}
         </Link>
       ) : (
         <div>

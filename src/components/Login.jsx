@@ -1,6 +1,9 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import '../css/Login.css';
+import axios from 'axios'
+import { UserContext } from '../App';
+
 
 export default function Login({ setUser }) {
   const [formData, setFormData] = useState({
@@ -10,6 +13,7 @@ export default function Login({ setUser }) {
 
   const [message, setMessage] = useState(null);
   const navigate = useNavigate();
+  let {setisAuthenticated} = useContext(UserContext)
 
   const handleChange = (e) => {
     setFormData((prev) => ({
@@ -32,25 +36,20 @@ export default function Login({ setUser }) {
       password: formData.password,
     };
     if (isEmail) payload.email = formData.usernameOrEmail;
-    else payload.username = formData.usernameOrEmail;
 
     try {
-      const res = await fetch('https://sportbookingbc.onrender.com/api/login', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(payload),
-      });
+      console.log("Payload: ",payload);
+      
+      const res = await axios.post('http://localhost:3002/api/login', payload);
 
-      const data = await res.json();
+      console.log(res);
 
-      if (res.ok) {
-        localStorage.setItem('token', data.token);
-        setUser({ username: data.username, email: data.email });
-        navigate('/');
-      } else {
-        setMessage({ type: 'error', text: data.error || 'Қате болды' });
-      }
+      localStorage.setItem('token', res.data.data[1].token);
+      localStorage.setItem('user',JSON.stringify(res.data.data[0]))
+      setisAuthenticated(true)
+      navigate('/');
     } catch (err) {
+      console.log(err.message);
       setMessage({ type: 'error', text: 'Серверге қосыла алмадым.' });
     }
   };

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, createContext } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
 import Home from './components/Home';
@@ -12,19 +12,21 @@ import VenueDetail from './components/VenueDetail'
 import BookingForm from './components/BookingForm';
 import './css/Responsive.css';
 
+export const UserContext = createContext()
+
 export default function App() {
-  const [user, setUser] = useState(null);
-
-  useEffect(() => {
-    const token = localStorage.getItem('token');
-    if (token) {
-      setUser({ name: 'Nurs' }); 
-    }
-  }, []); 
-
+    let [user,setUser] = useState(null)
+    let [isAuthenticated,setisAuthenticated]= useState(false)
+  
+    useEffect(()=>{
+      let adam = localStorage.getItem('user')
+      return adam ? setUser(JSON.parse(adam)):setUser(null)
+    },[isAuthenticated])
+  
   return (
+    <UserContext.Provider value={{ user,setisAuthenticated }}>
     <BrowserRouter>
-      <Navbar user={user} />
+      <Navbar/>
       <Routes>
        
         <Route path="/" element={<Home />} />
@@ -37,6 +39,7 @@ export default function App() {
         <Route path='/booking' element={<BookingForm/>}/>
       </Routes>
     </BrowserRouter>
+    </UserContext.Provider>
   );
 }
 
