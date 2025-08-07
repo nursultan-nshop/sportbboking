@@ -1,6 +1,7 @@
 import React, { useContext, useState } from 'react';
 import '../css/UserProfile.css';
 import { UserContext } from '../App';
+import { useNavigate } from 'react-router-dom';
 
 export default function UserProfile() {
 
@@ -36,13 +37,15 @@ export default function UserProfile() {
   const [isEditing, setIsEditing] = useState(false);
   const [activeTab, setActiveTab] = useState('profile');
 
+  let navigate = useNavigate()
+
   const handleLogout = () => {
     const confirmed = window.confirm('Шығуға сенімдісіз бе?');
     if (confirmed) {
       localStorage.removeItem('token');
       localStorage.removeItem('user')
       setisAuthenticated(false)
-      window.location.href = '/login';
+      navigate('/login')
     }
   };
 

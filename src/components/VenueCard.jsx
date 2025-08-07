@@ -1,3 +1,5 @@
+import { useNavigate } from "react-router-dom";
+
 const VenueCard = ({ venue }) => {
   const navigate = useNavigate();
 
@@ -33,3 +35,6 @@ const VenueCard = ({ venue }) => {
     </div>
   );
 };
+
+
+export default VenueCard
