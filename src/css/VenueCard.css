@@ -1,13 +1,10 @@
 .venue-card {
-  border: 1px solid #e0e0e0;
-  border-radius: 8px;
+  width: 300px;
+  border-radius: 10px;
   overflow: hidden;
-  background-color: #fff;
-  width: 100%;
-  max-width: 300px;
+  background: white;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
   font-family: Arial, sans-serif;
-  margin: 10px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
 .venue-image {
@@ -22,22 +19,35 @@
 }
 
 .venue-name {
-  font-size: 18px;
+  font-size: 20px;
   font-weight: bold;
-  color: #000;
-  margin-bottom: 5px;
+  margin: 0 0 5px 0;
+  color: #333;
 }
 
 .venue-type {
   font-size: 14px;
-  color: #555;
-  margin-bottom: 10px;
+  color: #666;
+  margin: 0 0 15px 0;
+}
+
+.venue-rating {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  font-size: 16px;
+  font-weight: bold;
+  color: #333;
+}
+
+.venue-rating::after {
+  content: ' ★';
+  color: #FFD700;
 }
 
 .venue-middle {
   display: flex;
   justify-content: space-between;
-  align-items: center;
   margin-bottom: 15px;
 }
 
@@ -49,7 +59,6 @@
 .venue-price {
   font-size: 16px;
   font-weight: bold;
-  color: #000;
 }
 
 .per-hour {
@@ -57,35 +66,102 @@
   color: #777;
 }
 
-.venue-rating {
-  position: absolute;
-  top: 15px;
-  right: 15px;
-  font-size: 14px;
-  font-weight: bold;
-  color: #000;
-}
-
-.star::after {
-  content: ' ★';
-  color: #ffc107;
-}
-
 .book-btn {
-  display: block;
   width: 100%;
   padding: 10px;
-  font-size: 16px;
-  font-weight: bold;
-  background-color: #007bff;
+  background: #007BFF;
   color: white;
   border: none;
-  border-radius: 4px;
+  border-radius: 5px;
+  font-weight: bold;
+  font-size: 16px;
   cursor: pointer;
-  text-align: center;
   text-transform: uppercase;
 }
 
 .book-btn:hover {
-  background-color: #0069d9;
+  background: #0069D9;
+}.venue-card {
+  width: 300px;
+  border-radius: 10px;
+  overflow: hidden;
+  background: white;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  font-family: Arial, sans-serif;
+}
+
+.venue-image {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+}
+
+.venue-info {
+  padding: 15px;
+  position: relative;
+}
+
+.venue-name {
+  font-size: 20px;
+  font-weight: bold;
+  margin: 0 0 5px 0;
+  color: #333;
+}
+
+.venue-type {
+  font-size: 14px;
+  color: #666;
+  margin: 0 0 15px 0;
+}
+
+.venue-rating {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  font-size: 16px;
+  font-weight: bold;
+  color: #333;
+}
+
+.venue-rating::after {
+  content: ' ★';
+  color: #FFD700;
+}
+
+.venue-middle {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 15px;
+}
+
+.venue-location {
+  font-size: 14px;
+  color: #555;
+}
+
+.venue-price {
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.per-hour {
+  font-size: 12px;
+  color: #777;
+}
+
+.book-btn {
+  width: 100%;
+  padding: 10px;
+  background: #007BFF;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-weight: bold;
+  font-size: 16px;
+  cursor: pointer;
+  text-transform: uppercase;
+}
+
+.book-btn:hover {
+  background: #0069D9;
 }
