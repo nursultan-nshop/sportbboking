@@ -4,14 +4,21 @@
   font-family: 'Segoe UI', sans-serif;
 }
 
+.polya-img{
+  width: 60%;
+}
+
+.left-side h2, .left-side p{
+  margin-left: 20px;
+}
+
 .left-side {
   flex: 1;
-  background: #0064ef;
+  background: #2DBD1A;
   color: white;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
   padding: 40px;
   background-image: url('/images/field-lines.svg'); /* суретті қалауыңа қарай өзгерт */
   background-size: contain;

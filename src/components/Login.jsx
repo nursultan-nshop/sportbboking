@@ -5,6 +5,7 @@ import axios from 'axios';
 import { UserContext } from '../App';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import polya from '../assets/polya.png'
 
 export default function Login({ setUser }) {
   const [formData, setFormData] = useState({
@@ -86,26 +87,28 @@ export default function Login({ setUser }) {
       <div className="left-side">
         <h2>Booking with us</h2>
         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi lobortis maximus nunc, ac rhoncus odio.</p>
+        <img className='polya-img' src={polya} alt="" />
       </div>
-
-      <form onSubmit={handleSubmit} className="login-form">
-        <h2>Кіру</h2>
-        <input
-          type="text"
-          name="usernameOrEmail"
-          placeholder="Username немесе Email"
-          value={formData.usernameOrEmail}
-          onChange={handleChange}
-        />
-        <input
-          type="password"
-          name="password"
-          placeholder="Құпия сөз"
-          value={formData.password}
-          onChange={handleChange}
-        />
-        <button type="submit">Кіру</button>
-      </form>
+      <div className="right-side">
+          <form onSubmit={handleSubmit} className="login-form">
+            <h2>Кіру</h2>
+            <input
+              type="text"
+              name="usernameOrEmail"
+              placeholder="Username немесе Email"
+              value={formData.usernameOrEmail}
+              onChange={handleChange}
+            />
+            <input
+              type="password"
+              name="password"
+              placeholder="Құпия сөз"
+              value={formData.password}
+              onChange={handleChange}
+            />
+            <button type="submit">Кіру</button>
+          </form>
+      </div>
     </div>
   );
 }

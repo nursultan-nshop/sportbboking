@@ -7,12 +7,11 @@
 
 .left-side {
   flex: 1;
-  background: #0064ef;
+  background: #2DBD1A;
   color: white;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
   padding: 40px;
   background-image: url('/images/field-lines.svg'); /* өз суретіңді қос */
   background-size: contain;

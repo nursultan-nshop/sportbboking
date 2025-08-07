@@ -3,6 +3,7 @@ import { useNavigate, Link } from 'react-router-dom';
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import '../css/Register.css';
+import polya from '../assets/polya.png'
 
 export default function Register() {
   const [formData, setFormData] = useState({
@@ -105,6 +106,7 @@ export default function Register() {
       <div className="left-side">
         <h2>Booking with us</h2>
         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi lobortis maximus nunc, ac rhoncus odio.</p>
+        <img className='polya-img' src={polya} alt="" />
       </div>
 
       <div className="right-side">
